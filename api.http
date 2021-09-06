@@ -1,0 +1,82 @@
+### GET Users
+GET /users HTTP/1.1
+Host: localhost:8080
+
+### GET Users Internationl
+GET //users-international HTTP/1.1
+Host: localhost:8080
+Accept-Language: en
+
+### GET A User
+GET /users/1 HTTP/1.1
+Host: localhost:8080
+
+### GET A User as XML
+GET /users/1 HTTP/1.1
+Host: localhost:8080
+Accept: application/xml
+
+### GET A User - Negative
+GET /users/123456 HTTP/1.1
+Host: localhost:8080
+
+### POST Create A New User
+POST /users HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "name": "Bob Smith",
+    "dob": "2021-09-06T10:13:31.551+00:00"
+}
+
+### POST Create A New User with XML
+POST /users HTTP/1.1
+Host: localhost:8080
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <name>Bob Smith</name>
+  <dob>2021-09-06T10:13:31.551+00:00</dob>
+</root>
+
+### POST Create A New User - Negative
+POST /users HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "name": "",
+    "dob": "2021-09-05T10:13:31.551+00:00"
+}
+
+### DELETE A User
+DELETE /users/1 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+### DELETE A User - Negative
+DELETE /users/1234 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+### GET A User Posts
+GET /users/1/posts HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+### POST A User New Post
+POST /users/1/posts HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "name": "",
+    "dob": "2021-09-06T10:13:31.551+00:00"
+}
+
+### GET Details of a User Post
+GET /users/1/posts/1 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
