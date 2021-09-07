@@ -1,39 +1,49 @@
-### GET Users
+@password = c8105dd8-008e-4248-a7d4-044553f1fe19
+@token = Basic user:{{password}}
+
+### @name getUsers
 GET /users HTTP/1.1
 Host: localhost:8080
+Authorization: {{token}}
 
-### GET Users Internationl
-GET //users-international HTTP/1.1
+### @name getUsersInternational
+GET /users-international HTTP/1.1
 Host: localhost:8080
 Accept-Language: en
+Authorization: {{token}}
 
-### GET A User
+### @name getUser
 GET /users/1 HTTP/1.1
 Host: localhost:8080
+Authorization: {{token}}
 
-### GET A User as XML
+### @name getUserXml
 GET /users/1 HTTP/1.1
 Host: localhost:8080
 Accept: application/xml
+Authorization: {{token}}
 
-### GET A User - Negative
+### @name getUserNegative
 GET /users/123456 HTTP/1.1
 Host: localhost:8080
+Authorization: {{token}}
 
-### POST Create A New User
+### @name postUser
 POST /users HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: {{token}}
 
 {
     "name": "Bob Smith",
     "dob": "2021-09-06T10:13:31.551+00:00"
 }
 
-### POST Create A New User with XML
+### @name postUserXml
 POST /users HTTP/1.1
 Host: localhost:8080
 Content-Type: application/xml
+Authorization: {{token}}
 
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
@@ -41,42 +51,47 @@ Content-Type: application/xml
   <dob>2021-09-06T10:13:31.551+00:00</dob>
 </root>
 
-### POST Create A New User - Negative
+### @name postUserNegative
 POST /users HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: {{token}}
 
 {
     "name": "",
     "dob": "2021-09-05T10:13:31.551+00:00"
 }
 
-### DELETE A User
-DELETE /users/1 HTTP/1.1
+### @name deleteUser
+DELETE /users/5 HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: {{token}}
 
-### DELETE A User - Negative
+### @name deleteUserNegative
 DELETE /users/1234 HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: {{token}}
 
-### GET A User Posts
+### @name getUserPosts
 GET /users/1/posts HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: {{token}}
 
-### POST A User New Post
+### @name postUserPost
 POST /users/1/posts HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: {{token}}
 
 {
-    "name": "",
-    "dob": "2021-09-06T10:13:31.551+00:00"
+    "description": "THIS IS A TEST POST!"
 }
 
-### GET Details of a User Post
+### @name getUserPostDetails
 GET /users/1/posts/1 HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
+Authorization: {{token}}

@@ -6,10 +6,22 @@ spring:
   jackson:
     serialization:
       write-dates-as-timestamps: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+  # For Spring Security UN/PW
+  # security:
+  #   user:
+  #     name: 
+  #     password: 
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-         
